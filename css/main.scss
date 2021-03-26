@@ -1,0 +1,359 @@
+@font-face {
+  font-family: 'Poppins-Regular';
+  src: local('Poppins-Regular'),
+  url("../fonts/Poppins/Poppins-Regular.ttf");
+}
+@font-face {
+  font-family: 'Poppins-Black';
+  src: local('Poppins-Black'),
+  url("../fonts/Poppins/Poppins-Black.ttf");
+}
+//variables
+$main-font: 'Poppins-Regular';
+$secondary-font: 'Poppins-Black';
+$background-color: #F6F6F6;
+$primary-white: #FFFFFF;
+$light-green: #37CAA8;
+$background-green: rgba(4, 191, 148, 0.16);
+$green-button: #04BF94;
+$gray-for-caption: #91A0B6;
+$gray-paragraph: #78787A;
+$dark-caption: #242424;
+  //mixins
+@mixin font-paragraph {
+    color: $gray-paragraph;
+  @include main-font
+}
+@mixin main-font {
+  font-family: $main-font;
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+}
+@mixin data-style {
+  margin: 0.8rem 0 0.8rem 0;
+  color: #ADB8C8;
+  @include main-font
+}
+
+html {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+*, *::after, *::after {
+  box-sizing: inherit;
+}
+body {
+  background-color: $background-color;
+  width: 100%;
+  height: 100%;
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  header{
+    .main-navbar {
+      background-color: $primary-white;
+      box-shadow: 0 2px 40px rgba(0, 0, 0, 0.1);
+      .navbar-brand > img {
+        margin: 20px 0 20px 24px;
+      }
+      button.navbar-toggler {
+        margin-right: 2rem;
+      }
+      li.nav-item {
+        padding: 0 1.9rem 0 1.9rem;
+        a.nav-link {
+          @include main-font;
+          color: $dark-caption;
+        }
+      }
+      .navbar-nav {
+        padding-left: 4.4rem;
+        .img-icon {
+          padding-top: 0.6rem;
+        }
+        .nav-pic {
+          padding-right: 1.6rem;
+        }
+      }
+
+    }
+    a.nav-link-side {
+      text-decoration: none;
+      @include main-font;
+      color: $gray-for-caption;
+    }
+    .arrow {
+      padding: 0 1rem;
+    }
+    .short-menu {
+      padding: 2.4rem 0 4.8rem 0;
+    }
+  }
+  // main section with search field
+  #search {
+    background: rgba(4, 191, 148, 0.16);
+    border-radius: 16px;
+    margin-bottom: 2.0rem;
+    .search {
+      padding-left: 5.6rem;
+      .form-group {
+        padding-bottom: 5.6rem;
+        #searchFld {
+          padding: 1.6rem 1.6rem;
+          outline: none;
+          background: url("../img/svg/search.svg") 95% 50% no-repeat #F6F6F6;
+          border-radius: 8px;
+          @include main-font;
+          border-color: $background-green;
+          &:focus, :active {
+            box-shadow: none;
+            border-color: $primary-white;
+          }
+        }
+        input:-webkit-autofill,
+        input:-webkit-autofill:hover,
+        input:-webkit-autofill:focus,
+        input:-webkit-autofill:active {
+          -webkit-box-shadow: 0 0 0 1000px white inset !important;
+        }
+      }
+      .header-text {
+        padding: 4.5rem 0 1.9rem 0;
+        color: $light-green;
+        font-family: $secondary-font;
+        font-size: 3.2rem;
+        font-weight: 800;
+        line-height: 4.8rem;
+      }
+      .paragraph-text {
+        font-family: $secondary-font;
+        font-size: 1.8rem;
+        font-weight: 700;
+        line-height: 2.7rem;
+        color: $dark-caption;
+        padding-bottom: 1.6rem;
+        .selected-text {
+          font-family: $main-font;
+          font-weight: 500;
+        }
+      }
+    }
+    .girl-img {
+      height: 100%;
+    }
+  }
+  // section with main topic
+  #blog {
+    margin-bottom: 5.6rem;
+    .rectangle-image {
+      position: relative;
+      margin-bottom: 2.0rem;
+      .rectangle-paragraph {
+        position: absolute;
+        font-family: $main-font;
+        font-weight: 600;
+        font-size: 1.4rem;
+        line-height: 2.0rem;
+        color: $primary-white;
+        top: 0.7rem;
+        padding-left: 2.0rem;
+      }
+    }
+    .post {
+      padding-left: 2.0rem;
+      .head-caption {
+        font-family: $main-font;
+        font-weight: 700;
+        font-size: 4.8rem;
+        line-height: 7.2rem;
+      }
+      .date {
+       @include data-style
+      }
+      .head-paragraph {
+        @include font-paragraph;
+      }
+    }
+  }
+  // section with two posts
+  #ourPosts {
+    margin-bottom: 5.6rem;
+    .caption {
+      font-family: $main-font;
+      font-size: 1.9rem;
+      font-weight: 700;
+      line-height: 2.5rem;
+      color: $gray-for-caption;
+      margin: 1.6rem 0 1.6rem 0;
+    }
+    .date {
+     @include data-style
+    }
+    .item-head {
+      margin-bottom: 0.8rem;
+      font-family: $main-font;
+      font-weight: 700;
+      font-size: 2.4rem;
+      line-height: 3.6rem;
+      color: $dark-caption;
+    }
+    .head-paragraph {
+      @include font-paragraph;
+    }
+  }
+  // section with gallery of articles
+  #articles {
+    margin-bottom: 5.6rem;
+    .caption {
+      font-family: $main-font;
+      font-size: 1.9rem;
+      font-weight: 700;
+      line-height: 2.5rem;
+      color: $gray-for-caption;
+      margin: 1.6rem 0 1.6rem 0;
+    }
+    .article {
+      margin-bottom: 3.0rem;
+      .date {
+     @include data-style
+      }
+      .head-paragraph {
+        @include font-paragraph;
+      }
+      img {
+        width: 100%;
+      }
+      .bord-rounded {
+        border-radius: 12px;
+      }
+    }
+  }
+  // second green banner
+  #greenBanner {
+    background: $background-green;
+    border-radius: 16px;
+    margin-bottom: 5.6rem;
+    .banner {
+      padding: 0 0 2.4rem 2.4rem;
+      .green-logo > img {
+        padding-top: 2.4rem;
+      }
+      .header-of-green-banner {
+        padding-top: 2.4rem;
+        color: $light-green;
+        font-family: $secondary-font;
+        font-size: 3.2rem;
+        font-weight: 600;
+        line-height: 4.8rem;
+      }
+      .paragraph-of-green-banner {
+        padding: 0.8rem 0 0.8rem 0;
+        font-family: $main-font;
+        font-size: 1.8rem;
+        font-weight: bold;
+        line-height: 2.7rem;
+        color: $dark-caption;
+      }
+      .green {
+        padding: 0.8rem 3.0rem 0.8rem 3.0rem;
+        border-radius: 8px;
+        background-color: $green-button;
+        border-color: $green-button;
+        color: $primary-white;
+        font-family: $main-font;
+        font-weight: 500;
+        font-size: 1.6rem;
+        line-height: 2.4rem;
+      }
+    }
+    .frame-of-banner {
+      position: absolute;
+      right: 0;
+      margin: -1rem -0.5rem 0 0;
+    }
+  }
+  // footer of the site
+  #footer {
+    position: relative;
+    margin-bottom: 2rem;
+    .footer-signature {
+      font-family: $main-font;
+      font-size: 1.4rem;
+      font-weight: 400;
+      line-height: 2.0rem;
+      color: $gray-for-caption;
+    }
+    .link {
+      text-decoration: none;
+      padding-right: 2rem;
+    }
+    .up {
+      position: absolute;
+      right: 0.4rem;
+      bottom: -2rem;
+      width: 6.4rem;
+      height: 6.4rem;
+      background-color: $primary-white;
+      border-radius: 12px 0 0 0;
+      img {
+        padding: 1.5rem 0.5rem;
+      }
+    }
+  }
+}
+  // media request
+@media screen and (max-width: 991.98px) {
+  body {
+    #search .search {
+      padding: 0 2.6rem 0 2.6rem;
+
+      .header-text {
+        padding-top: 1.6rem;
+        font-size: 2.4rem;
+        line-height: 3.6rem;
+      }
+
+      .paragraph-text {
+        padding-bottom: 0;
+        margin-bottom: 0;
+      }
+
+      .form-group {
+        padding-bottom: 1.6rem;
+      }
+    }
+    #blog {
+      margin-bottom: 2.3rem;
+      .post .head-caption {
+        font-size: 2.4rem;
+        line-height: 3.6rem;
+      }
+    }
+    #ourPosts {
+      margin-bottom: 2.3rem;
+    }
+    #footer {
+      .footer-signature {
+        display: block;
+        font-size: 1.6rem;
+        line-height: 2.4rem;
+        text-align: center;
+        padding-bottom: .8rem;
+      }
+      .footer-links {
+        padding-bottom: 1.6rem;
+      }
+      .signature {
+        //align-items: center;
+        justify-content: center !important;
+      }
+    }
+  }
+}
